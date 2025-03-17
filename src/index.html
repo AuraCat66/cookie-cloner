@@ -9,11 +9,20 @@
     </head>
 
     <body>
-        <h1>Cookie Cloner</h1>
-        <p>Click the button to clone the cookie</p>
-        <button id="cloneButton">Clone</button>
+        <div>
+            <h1>Cookie Cloner</h1>
+            <p>Click the button to clone the cookie</p>
+            <button id="cloneButton">Clone</button>
 
-        <p>Cookie counter</p>
-        <p id="cookieCounter">0</p>
+            <p>Cookie counter: <span id="cookieCounter">0</span></p>
+        </div>
+
+        <div id="shop" hidden>
+            <h2>Shop</h2>
+            <div id="shopAutoCloner" hidden>
+                <p>Autocloner <button id="buyButton">Buy</button></p>
+                <p>Cost: <span id="shopAutoClonerCost">0</span></p>
+            </div>
+        </div>
     </body>
 </html>
