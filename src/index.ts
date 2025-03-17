@@ -88,8 +88,12 @@ function gameLogic() {
 
   resetGameButton.addEventListener("click", (_ev) => {
     if (confirm("You're about to reset your game. Are you sure?")) {
+      clearInterval(setIntervalIds.autosaving ?? undefined);
+
       localStorage.clear();
-      location.reload();
+      setTimeout(() => {
+        location.reload();
+      }, 500);
     }
   });
 }
