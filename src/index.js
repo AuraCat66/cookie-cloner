@@ -2,12 +2,12 @@
 let cookies = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
-    let cookieCounter = document.getElementById("cookieCounter");
-    let cloneButton = document.getElementById("cloneButton");
+  const cookieCounter = document.getElementById("cookieCounter");
+  const cloneButton = document.getElementById("cloneButton");
 
-    cloneButton.addEventListener("click", function (ev) {
-        console.log("Button clicked!");
-        cookies += 1;
-        cookieCounter.innerHTML = cookies;
-    });
+  cloneButton.addEventListener("click", function (ev) {
+    console.log("Button clicked!");
+    cookies += 1;
+    cookieCounter.innerHTML = cookies;
+  });
 });
