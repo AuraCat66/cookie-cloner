@@ -105,6 +105,7 @@ function setIntervals() {
   setIntervalIds.autocloner = setInterval(() => {
     counters.cookies += counters.autocloners;
     counterUpdate.cookies();
+    checkUnlockables();
   }, intervals.autocloner);
 
   if (setIntervalIds.autosaving) {
