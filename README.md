@@ -12,6 +12,10 @@ For real don't take all of this too seriously please xd.
 
 ## How to play
 
+The game autosaves every 3 seconds on the localStorage.
+
+(Todo: Add a way to reset the game?)
+
 Click on the "clone" button to clone a cookie.
 
 Only one for now as the technology for cloning is still very experimental. :pensive: 
