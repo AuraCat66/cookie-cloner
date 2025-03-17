@@ -6,9 +6,9 @@ Click [here](https://auracat66.github.io/cookie-cloner/) to play the game!
 
 ## Why?
 
-I wanted to learn some HTML/CSS as well as learning some front-end JavaScript
+I wanted to learn some HTML/CSS as well as learning some front-end JavaScript.
 
-For real don't take all of this too seriously please xd
+For real don't take all of this too seriously please xd.
 
 ## How to play
 
