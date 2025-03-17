@@ -110,7 +110,7 @@ function checkUnlockables() {
 
 function unlockAutocloners() {
   unlocked.autocloners = true;
-  document.getElementById("autoclonerShopItem").hidden = false;
+  document.getElementById("autocloner").hidden = false;
 
   return true;
 }

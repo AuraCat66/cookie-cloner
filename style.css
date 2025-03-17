@@ -3,9 +3,12 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.header-container {
+.row-container {
   display: flex;
   flex-direction: row;
+}
+
+.header-container {
   background-color: #f58b00;
   justify-content: space-between;
   align-items: center;
@@ -13,9 +16,16 @@ body {
   padding-right: 10px;
 }
 
-.header-flex-item {
-  width: auto;
-  height: auto;
+.middle-container {
+  justify-content: space-between;
+  padding: 0px;
+  padding-top: 20px;
+}
+
+.middle-item {
+  background-color: #85be00;
+  padding: 15px;
+  height: fit-content;
 }
 
 .github-logo {
