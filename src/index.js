@@ -21,6 +21,10 @@ let intervals = {
   autocloner: 1000,
 };
 
+let setIntervalIds = {
+  autocloner: null,
+}
+
 document.addEventListener("DOMContentLoaded", (_ev) => {
   gameLogic();
 }, { once: true });
@@ -61,6 +65,19 @@ function gameLogic() {
     counterUpdate.autocloners();
     updateShopPrices();
   });
+
+  // We set the loop/interval for the autocloners
+  setIntervals();
+}
+
+function setIntervals() {
+  if (setIntervalIds.autocloner) {
+    clearInterval(setIntervalIds.autocloner);
+  }
+  setIntervalIds.autocloner = setInterval(() => {
+    counters.cookies += counters.autocloners;
+    counterUpdate.cookies();
+  }, intervals.autocloner);
 }
 
 const counterUpdate = {
@@ -84,14 +101,12 @@ function checkUnlockables() {
     unlockedSomething = unlockAutocloners();
   }
 
-  if (unlockedSomething) {
+  if (unlockedSomething && !unlocked.shop) {
     unlockShop();
   }
 }
 
 function unlockAutocloners() {
-  if (unlocked.autocloners) return false;
-
   unlocked.autocloners = true;
   document.getElementById("autoclonerShopItem").hidden = false;
 
@@ -99,8 +114,6 @@ function unlockAutocloners() {
 }
 
 function unlockShop() {
-  if (unlocked.shop) return;
-
   unlocked.shop = true;
   document.getElementById("shop").hidden = false;
 }
