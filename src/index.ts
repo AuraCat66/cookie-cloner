@@ -1,4 +1,8 @@
 "use strict";
+
+// Compiled from TypeScript
+// Source code = https://github.com/AuraCat66/cookie-cloner
+
 let counters = {
   cookies: 100,
   autocloners: 0,
@@ -21,7 +25,10 @@ let intervals = {
   autocloner: 1000,
 };
 
-let setIntervalIds = {
+interface SetIntervalIds {
+  autocloner: number | null;
+}
+let setIntervalIds: SetIntervalIds = {
   autocloner: null,
 };
 
@@ -32,10 +39,10 @@ document.addEventListener("DOMContentLoaded", (_ev) => {
 function gameLogic() {
   updateShopPrices();
 
-  const cloneButton = document.getElementById("cloneButton");
+  const cloneButton = assertElementById("cloneButton");
 
   const shopButtons = {
-    autocloner: document.getElementById("autoclonerBuyButton"),
+    autocloner: assertElementById("autoclonerBuyButton"),
   };
 
   counterUpdate.cookies();
@@ -84,14 +91,11 @@ function setIntervals() {
 
 const counterUpdate = {
   cookies: () => {
-    const cookieCounter = document.getElementById("cookieCounter");
-
-    cookieCounter.innerHTML = counters.cookies;
+    assertElementById("cookieCounter").innerHTML = counters.cookies.toString();
   },
   autocloners: () => {
-    const autoclonerCounter = document.getElementById("autoclonerCounter");
-
-    autoclonerCounter.innerHTML = counters.autocloners;
+    assertElementById("autoclonerCounter").innerHTML = counters.autocloners
+      .toString();
   },
 };
 
@@ -110,17 +114,26 @@ function checkUnlockables() {
 
 function unlockAutocloners() {
   unlocked.autocloners = true;
-  document.getElementById("autocloner").hidden = false;
+  assertElementById("autocloner").hidden = false;
 
   return true;
 }
 
 function unlockShop() {
   unlocked.shop = true;
-  document.getElementById("shop").hidden = false;
+  assertElementById("shop").hidden = false;
 }
 
 function updateShopPrices() {
-  document.getElementById("autoclonerCost").innerText =
-    currentPrices.autocloner;
+  assertElementById("autoclonerCost").innerText = currentPrices.autocloner
+    .toString();
+}
+
+function assertElementById(key: string): HTMLElement {
+  const element = document.getElementById(key);
+  if (element === null) {
+    throw new Error(`Element "${key}" not found`);
+  }
+
+  return element;
 }

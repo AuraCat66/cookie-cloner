@@ -28,6 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build with Typescript
+        run: npx tsc
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
