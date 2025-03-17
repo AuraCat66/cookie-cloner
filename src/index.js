@@ -10,6 +10,7 @@ let defaultPrices = {
 let currentPrices = { ...defaultPrices };
 
 let unlocked = {
+  shop: false,
   autocloners: false,
 };
 let unlockThresholds = {
@@ -39,7 +40,6 @@ function gameLogic() {
     counterUpdate.cookies();
 
     checkUnlockables();
-    updateShopVisibility();
   });
 
   shopButtons.autocloner?.addEventListener("click", (_ev) => {
@@ -77,23 +77,32 @@ const counterUpdate = {
 };
 
 function checkUnlockables() {
+  let unlockedSomething = false;
   if (
     counters.cookies >= unlockThresholds.autocloner && !unlocked.autocloners
   ) {
-    unlocked.autocloners = true;
+    unlockedSomething = unlockAutocloners();
+  }
+
+  if (unlockedSomething) {
+    unlockShop();
   }
 }
 
-function updateShopVisibility() {
-  if (unlocked.autocloners) {
-    document.getElementById("autoclonerShopItem").hidden = false;
-  }
+function unlockAutocloners() {
+  if (unlocked.autocloners) return false;
 
-  Object.values(unlocked).forEach((unlocked) => {
-    if (unlocked) {
-      document.getElementById("shop").hidden = false;
-    }
-  });
+  unlocked.autocloners = true;
+  document.getElementById("autoclonerShopItem").hidden = false;
+
+  return true;
+}
+
+function unlockShop() {
+  if (unlocked.shop) return;
+
+  unlocked.shop = true;
+  document.getElementById("shop").hidden = false;
 }
 
 function updateShopPrices() {
