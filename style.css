@@ -1,4 +1,25 @@
 body {
-  background-color: #e9be00;
+  background-color: #f5b400;
   font-family: Arial, sans-serif;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #f58b00;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.header-flex-item {
+  width: auto;
+  height: auto;
+}
+
+.github-logo {
+  background-color: black;
+  width: 50px;
+  height: 50px;
 }
