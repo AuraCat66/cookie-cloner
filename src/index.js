@@ -23,7 +23,7 @@ let intervals = {
 
 let setIntervalIds = {
   autocloner: null,
-}
+};
 
 document.addEventListener("DOMContentLoaded", (_ev) => {
   gameLogic();
@@ -37,6 +37,8 @@ function gameLogic() {
   const shopButtons = {
     autocloner: document.getElementById("autoclonerBuyButton"),
   };
+
+  counterUpdate.cookies();
 
   cloneButton?.addEventListener("click", (_ev) => {
     console.log("Button clicked!");
