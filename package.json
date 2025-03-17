@@ -1,0 +1,25 @@
+{
+  "name": "cookie-cloner",
+  "version": "1.0.0",
+  "description": "It's just a silly little game with no big ambitions, written in pure HTML/CSS/JS, no frameworks or libraries (at least for now).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AuraCat66/cookie-cloner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AuraCat66/cookie-cloner/issues"
+  },
+  "homepage": "https://github.com/AuraCat66/cookie-cloner#readme",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.8",
+    "typescript": "^5.8.2"
+  }
+}
