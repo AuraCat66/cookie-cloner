@@ -35,14 +35,14 @@ let setIntervalIds: SetIntervalIds = {
   autosaving: null,
 };
 
-loadSavedGame();
-saveGame();
-
 document.addEventListener("DOMContentLoaded", (_ev) => {
   gameLogic();
 }, { once: true });
 
 function gameLogic() {
+  loadSavedGame();
+  saveGame();
+
   const cloneButton = assertElementById("cloneButton");
   const shopButtons = {
     autocloner: assertElementById("autoclonerBuyButton"),
