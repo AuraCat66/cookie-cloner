@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/AuraCat66/cookie-cloner#readme",
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.8",
     "typescript": "^5.8.2"
   }
 }
