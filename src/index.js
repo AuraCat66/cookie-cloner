@@ -1,6 +1,8 @@
 "use strict";
-let cookies = 0;
-let autocloners = 0;
+let counters = {
+  cookies: 100,
+  autocloners: 0,
+};
 
 let defaultPrices = {
   autocloner: 100,
@@ -10,10 +12,10 @@ let currentPrices = { ...defaultPrices };
 let unlocked = {
   autocloners: false,
 };
-
 let unlockThresholds = {
   autocloner: 10,
 };
+
 let intervals = {
   autocloner: 1000,
 };
@@ -27,31 +29,64 @@ function gameLogic() {
 
   const cloneButton = document.getElementById("cloneButton");
 
-  cloneButton.addEventListener("click", (_ev) => {
+  const shopButtons = {
+    autocloner: document.getElementById("autoclonerBuyButton"),
+  };
+
+  cloneButton?.addEventListener("click", (_ev) => {
     console.log("Button clicked!");
-    cookies += 1;
-    updateCookies();
+    counters.cookies += 1;
+    counterUpdate.cookies();
 
     checkUnlockables();
     updateShopVisibility();
   });
+
+  shopButtons.autocloner?.addEventListener("click", (_ev) => {
+    // If not enough cookies, return
+    if (counters.cookies < currentPrices.autocloner) {
+      return;
+    }
+    // Otherwise, add one autocloner
+    counters.autocloners += 1;
+    // Substract the price from the cookies
+    counters.cookies -= currentPrices.autocloner;
+    // And update the price of autocloners
+    currentPrices.autocloner = Math.floor(
+      currentPrices.autocloner * 1.1,
+    );
+
+    // Update the UI
+    counterUpdate.cookies();
+    counterUpdate.autocloners();
+    updateShopPrices();
+  });
 }
 
-function updateCookies() {
-  const cookieCounter = document.getElementById("cookieCounter");
+const counterUpdate = {
+  cookies: () => {
+    const cookieCounter = document.getElementById("cookieCounter");
 
-  cookieCounter.innerHTML = cookies;
-}
+    cookieCounter.innerHTML = counters.cookies;
+  },
+  autocloners: () => {
+    const autoclonerCounter = document.getElementById("autoclonerCounter");
+
+    autoclonerCounter.innerHTML = counters.autocloners;
+  },
+};
 
 function checkUnlockables() {
-  if (cookies >= unlockThresholds.autocloner && !unlocked.autocloners) {
+  if (
+    counters.cookies >= unlockThresholds.autocloner && !unlocked.autocloners
+  ) {
     unlocked.autocloners = true;
   }
 }
 
 function updateShopVisibility() {
   if (unlocked.autocloners) {
-    document.getElementById("shopAutoCloner").hidden = false;
+    document.getElementById("autoclonerShopItem").hidden = false;
   }
 
   Object.values(unlocked).forEach((unlocked) => {
@@ -60,7 +95,8 @@ function updateShopVisibility() {
     }
   });
 }
+
 function updateShopPrices() {
-  document.getElementById("shopAutoClonerCost").innerText =
+  document.getElementById("autoclonerCost").innerText =
     currentPrices.autocloner;
 }
