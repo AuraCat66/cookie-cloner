@@ -14,11 +14,11 @@ For real don't take all of this too seriously please xd.
 
 Click on the "clone" button to clone a cookie.
 
-Only one for now as the technology the cloning is still very experimental. :pensive: 
+Only one for now as the technology for cloning is still very experimental. :pensive: 
 
 *Note: Currently, the lab gives you 100 cookies to start up (this might change in the future).*
 
-When you attain the 10 cookie milestone, you unlock the shop as well as the possibility to buy "autocloners".
+When you attain the 10 cookies milestone, you unlock the shop as well as the possibility to buy "autocloners".
 
 The base price for an autocloner is 100 cookies, but the price multiplies by 1.1 every time you buy one.
 
