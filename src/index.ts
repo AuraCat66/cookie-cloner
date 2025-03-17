@@ -47,12 +47,16 @@ function gameLogic() {
   const shopButtons = {
     autocloner: assertElementById("autoclonerBuyButton"),
   };
+  const resetGameButton = assertElementById("resetGameButton");
 
-  // We do a first update on the UI directly at start up
+  // We do a first update on the UI directly at the start
   counterUpdate.cookies();
   counterUpdate.autocloners();
   updateShopPrices();
   checkUnlockables();
+
+  // We set the loop/interval for the autocloners
+  setIntervals();
 
   cloneButton.addEventListener("click", (_ev) => {
     console.log("Button clicked!");
@@ -82,8 +86,12 @@ function gameLogic() {
     updateShopPrices();
   });
 
-  // We set the loop/interval for the autocloners
-  setIntervals();
+  resetGameButton.addEventListener("click", (_ev) => {
+    if (confirm("You're about to reset your game. Are you sure?")) {
+      localStorage.clear();
+      location.reload();
+    }
+  });
 }
 
 function setIntervals() {

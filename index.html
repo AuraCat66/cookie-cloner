@@ -64,13 +64,21 @@
         </div>
 
         <div class="row-container middle-container">
-            <div class="middle-item"">
-                <h2>Click the button to clone the cookie</h2>
-                <button id="cloneButton">Clone</button>
+            <div class="column-container middle-left-container">
+                <div class="middle-item box-item">
+                    <h2>Click the button to clone the cookie</h2>
+                    <button id="cloneButton">Clone</button>
 
-                <p>Cookies: <span id="cookieCounter">1</span></p>
+                    <p>Cookies: <span id="cookieCounter">1</span></p>
+                </div>
+                <div class="reset-button">
+                    <button id="resetGameButton">
+                        Reset game (this will completely wipe your save)
+                    </button>
+                </div>
             </div>
-            <div class="middle-item" id="shop" hidden>
+
+            <div class="middle-item box-item" id="shop" hidden>
                 <h2>Shop</h2>
                 <div class="shopItem" id="autocloner" hidden>
                     <p>

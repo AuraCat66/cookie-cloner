@@ -8,12 +8,17 @@ body {
   flex-direction: row;
 }
 
+.column-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .header-container {
   background-color: #f58b00;
   justify-content: space-between;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .middle-container {
@@ -24,8 +29,19 @@ body {
 
 .middle-item {
   background-color: #85be00;
-  padding: 15px;
+}
+
+.middle-left-container {
+  align-items: center;
+}
+
+.box-item {
+  padding: 20px;
   height: fit-content;
+}
+
+.reset-button {
+  padding-top: 30px;
 }
 
 .github-logo {
