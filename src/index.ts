@@ -116,7 +116,9 @@ const counterUpdate = {
 function checkUnlockables() {
   let unlockedSomething = false;
   if (
-    counters.cookies >= unlockThresholds.autocloner && !unlocked.autocloners
+    !unlocked.autocloners &&
+    ((counters.cookies >= unlockThresholds.autocloner) ||
+      counters.autocloners > 0)
   ) {
     unlockedSomething = unlockAutocloners();
   }
