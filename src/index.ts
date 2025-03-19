@@ -35,21 +35,10 @@ let setIntervalIds: SetIntervalIds = {
   autosaving: null,
 };
 
-document.addEventListener("DOMContentLoaded", (_ev) => {
-  gameLogic();
-}, { once: true });
-
-function gameLogic() {
+function bodyOnLoad() {
   loadSavedGame();
   saveGame();
 
-  const cloneButton = assertElementById("cloneButton");
-  const shopButtons = {
-    autocloner: assertElementById("autoclonerBuyButton"),
-  };
-  const resetGameButton = assertElementById("resetGameButton");
-
-  // We do a first update on the UI directly at the start
   counterUpdate.cookies();
   counterUpdate.autocloners();
   updateShopPrices();
@@ -57,45 +46,45 @@ function gameLogic() {
 
   // We set the loop/interval for the autocloners
   setIntervals();
+}
 
-  cloneButton.addEventListener("click", (_ev) => {
-    console.log("Button clicked!");
-    counters.cookies += 1;
-    counterUpdate.cookies();
+function resetGameOnClick() {
+  if (confirm("You're about to reset your game. Are you sure?")) {
+    clearInterval(setIntervalIds.autosaving ?? undefined);
 
-    checkUnlockables();
-  });
+    localStorage.clear();
+    setTimeout(() => {
+      location.reload();
+    }, 500);
+  }
+}
 
-  shopButtons.autocloner.addEventListener("click", (_ev) => {
-    // If not enough cookies, return
-    if (counters.cookies < currentPrices.autocloner) {
-      return;
-    }
-    // Otherwise, add one autocloner
-    counters.autocloners += 1;
-    // Substract the price from the cookies
-    counters.cookies -= currentPrices.autocloner;
-    // And update the price of autocloners
-    currentPrices.autocloner = Math.floor(
-      currentPrices.autocloner * 1.1,
-    );
+function cloneOnClick() {
+  console.log("Cookie cloned!");
+  counters.cookies += 1;
+  counterUpdate.cookies();
 
-    // Update the UI
-    counterUpdate.cookies();
-    counterUpdate.autocloners();
-    updateShopPrices();
-  });
+  checkUnlockables();
+}
 
-  resetGameButton.addEventListener("click", (_ev) => {
-    if (confirm("You're about to reset your game. Are you sure?")) {
-      clearInterval(setIntervalIds.autosaving ?? undefined);
+function shopAutoclonerBuyOnClick() {
+  // If not enough cookies, return
+  if (counters.cookies < currentPrices.autocloner) {
+    return;
+  }
+  // Otherwise, add one autocloner
+  counters.autocloners += 1;
+  // Substract the price from the cookies
+  counters.cookies -= currentPrices.autocloner;
+  // And update the price of autocloners
+  currentPrices.autocloner = Math.floor(
+    currentPrices.autocloner * 1.1,
+  );
 
-      localStorage.clear();
-      setTimeout(() => {
-        location.reload();
-      }, 500);
-    }
-  });
+  // Update the UI
+  counterUpdate.cookies();
+  counterUpdate.autocloners();
+  updateShopPrices();
 }
 
 function setIntervals() {
