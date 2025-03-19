@@ -4,6 +4,10 @@ body {
   padding: 5px;
 }
 
+noscript {
+  text-align: center;
+}
+
 .row-container {
   display: flex;
   flex-direction: row;
@@ -30,17 +34,14 @@ body {
 
 .middle-item {
   background-color: #85be00;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: fit-content;
+  text-align: center;
 }
 
 .middle-left-container {
   align-items: center;
-}
-
-/* A green box */
-.box-item {
-  padding-left: 30px;
-  padding-right: 30px;
-  height: fit-content;
 }
 
 .reset-button {
