@@ -2,6 +2,7 @@ body {
   background-color: #f5b400;
   font-family: Arial, sans-serif;
   padding: 5px;
+  height: 100%;
 }
 
 noscript {
@@ -43,12 +44,10 @@ main {
   text-align: center;
 }
 
-.middle-left-container {
-  align-items: center;
-}
-
-.middle-left-item {
-  margin-top: 30px;
+footer {
+  position: fixed;
+  padding-bottom: 20px;
+  bottom: 0;
 }
 
 .github-logo {

@@ -70,16 +70,11 @@
         </noscript>
 
         <main class="row-container">
-            <div class="column-container middle-left-container">
-                <div class="middle-item">
-                    <h2>Click the button to clone a cookie</h2>
-                    <button onclick="cloneOnClick();">Clone</button>
+            <div class="middle-item">
+                <h2>Click the button to clone a cookie</h2>
+                <button onclick="cloneOnClick();">Clone</button>
 
-                    <p>Cookies: <span id="cookieCounter">1</span></p>
-                </div>
-                <button class="middle-left-item" onclick="resetGameOnClick();">
-                    Reset game (this will completely wipe your save)
-                </button>
+                <p>Cookies: <span id="cookieCounter">1</span></p>
             </div>
 
             <div hidden class="middle-item" id="shop">
@@ -102,5 +97,9 @@
             </div>
         </main>
     </body>
-    <footer></footer>
+    <footer class="row-container">
+        <button onclick="resetGameOnClick();">
+            Reset game (this will completely wipe your save)
+        </button>
+    </footer>
 </html>
