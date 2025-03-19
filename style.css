@@ -1,6 +1,7 @@
 body {
   background-color: #f5b400;
   font-family: Arial, sans-serif;
+  padding: 5px;
 }
 
 .row-container {
@@ -17,8 +18,8 @@ body {
   background-color: #f58b00;
   justify-content: space-between;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .middle-container {
@@ -35,8 +36,10 @@ body {
   align-items: center;
 }
 
+/* A green box */
 .box-item {
-  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   height: fit-content;
 }
 
