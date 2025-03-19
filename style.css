@@ -30,7 +30,7 @@ header > div > h3 {
   padding-right: 10px;
 }
 
-.middle-container {
+main {
   justify-content: space-between;
   margin-top: 20px;
 }

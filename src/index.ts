@@ -171,7 +171,6 @@ function loadSavedGame() {
   }
   if (currentPricesJSONItem !== null) {
     let parsedJSON = JSON.parse(currentPricesJSONItem);
-    console.log(parsedJSON);
     if (typeof parsedJSON !== "object" || !("autocloner" in parsedJSON)) {
       throw new Error(
         `Found invalid JSON while trying to load currentPrices from localStorage:\n${currentPricesJSONItem}`,
