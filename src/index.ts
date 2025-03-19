@@ -39,10 +39,7 @@ function bodyOnLoad() {
   loadSavedGame();
   saveGame();
 
-  counterUpdate.cookies();
-  counterUpdate.autocloners();
-  updateShopPrices();
-  checkUnlockables();
+  updateGlobalUI();
 
   // We set the loop/interval for the autocloners
   setIntervals();
@@ -62,8 +59,8 @@ function resetGameOnClick() {
 function cloneOnClick() {
   console.log("Cookie cloned!");
   counters.cookies += 1;
-  counterUpdate.cookies();
 
+  counterUpdate.cookies();
   checkUnlockables();
 }
 
@@ -76,15 +73,41 @@ function shopAutoclonerBuyOnClick() {
   counters.autocloners += 1;
   // Substract the price from the cookies
   counters.cookies -= currentPrices.autocloner;
-  // And update the price of autocloners
+  // Update the price
   currentPrices.autocloner = Math.floor(
     currentPrices.autocloner * 1.1,
   );
 
   // Update the UI
-  counterUpdate.cookies();
-  counterUpdate.autocloners();
-  updateShopPrices();
+  updateGlobalUI();
+}
+
+function shopAutoclonerBuyAllOnClick() {
+  // If not enough cookies, return
+  if (counters.cookies < currentPrices.autocloner) {
+    return;
+  }
+
+  // Otherwise calculate how many autocloners can be bought
+  let remainingCookies = counters.cookies;
+  let newAutocloners = 0;
+  let newAutoclonerPrice = currentPrices.autocloner;
+  while (remainingCookies >= newAutoclonerPrice) {
+    // Add one autocloner
+    newAutocloners += 1;
+    // Substract the price from the remaining cookies
+    remainingCookies -= newAutoclonerPrice;
+    // Update the price
+    newAutoclonerPrice = Math.floor(newAutoclonerPrice * 1.1);
+  }
+
+  // Update the internal state of the game
+  counters.autocloners += newAutocloners;
+  counters.cookies = remainingCookies;
+  currentPrices.autocloner = newAutoclonerPrice;
+
+  // Update the UI
+  updateGlobalUI();
 }
 
 function setIntervals() {
@@ -188,4 +211,11 @@ function saveGame() {
   storage.setItem("currentPrices", JSON.stringify(currentPrices));
 
   console.log("Game saved!");
+}
+
+function updateGlobalUI() {
+  counterUpdate.cookies();
+  counterUpdate.autocloners();
+  updateShopPrices();
+  checkUnlockables();
 }
