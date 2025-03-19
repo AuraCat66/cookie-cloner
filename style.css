@@ -18,12 +18,16 @@ noscript {
   flex-direction: column;
 }
 
-.header-container {
+header {
   background-color: #f58b00;
   justify-content: space-between;
   align-items: center;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+header > div > h3 {
+  padding-right: 10px;
 }
 
 .middle-container {
@@ -49,6 +53,7 @@ noscript {
 
 .github-logo {
   background-color: black;
-  width: 50px;
-  height: 50px;
+  height: 2em;
+  width: 2em;
+  transform: translateY(0.8em);
 }

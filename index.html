@@ -48,15 +48,20 @@
     </head>
 
     <body onload="bodyOnLoad();">
-        <header class="row-container header-container">
+        <header class="row-container">
             <h1>Cookie Cloner</h1>
-            <a href="https://github.com/AuraCat66/cookie-cloner">
-                <img
-                    src="./github-white-logo.png"
-                    alt="White GitHub logo"
-                    class="github-logo"
-                />
-            </a>
+            <div class="row-container">
+                <h3>
+                    Source code:
+                </h3>
+                <a href="https://github.com/AuraCat66/cookie-cloner">
+                    <img
+                        src="./github-white-logo.png"
+                        alt="White GitHub logo"
+                        class="github-logo"
+                    />
+                </a>
+            </div>
         </header>
 
         <!-- If JavaScript is disabled -->
@@ -77,9 +82,9 @@
                 </button>
             </div>
 
-            <div class="middle-item" id="shop" hidden>
+            <div hidden class="middle-item" id="shop">
                 <h2>Shop</h2>
-                <div class="shopItem" id="autocloner" hidden>
+                <div hidden class="shopItem" id="autocloner">
                     <p>
                         Simple Autocloner
                         <button onclick="shopAutoclonerBuyOnClick();">
@@ -97,4 +102,5 @@
             </div>
         </div>
     </body>
+    <footer></footer>
 </html>
