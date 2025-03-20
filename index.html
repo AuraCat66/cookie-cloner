@@ -49,16 +49,17 @@
 
     <body onload="bodyOnLoad();">
         <header class="row-container">
-            <h1>Cookie Cloner</h1>
+            <h1>Cookie Cloner (WIP)</h1>
             <div class="row-container">
                 <h3>
                     Source code:
                 </h3>
                 <a href="https://github.com/AuraCat66/cookie-cloner">
                     <img
+                        class="github-logo"
                         src="./github-white-logo.png"
                         alt="White GitHub logo"
-                        class="github-logo"
+                        title="White GitHub logo"
                     />
                 </a>
             </div>
@@ -73,26 +74,41 @@
             <div class="middle-item">
                 <h2>Click the button to clone a cookie</h2>
                 <button onclick="cloneOnClick();">Clone</button>
-
-                <p>Cookies: <span id="cookieCounter">1</span></p>
+                <p title="The amount of cookies that you currently have">
+                    Cookies: <span id="cookieCounter">1</span>
+                </p>
             </div>
 
-            <div hidden class="middle-item" id="shop">
-                <h2>Shop</h2>
-                <div hidden class="shopItem" id="autocloner">
-                    <p>
-                        Simple Autocloner
-                        <button onclick="shopAutoclonerBuyOnClick();">
-                            Buy
-                        </button>
-                        <button onclick="shopAutoclonerBuyAllOnClick();">
-                            Buy all
-                        </button>
-                    </p>
-                    <p>
-                        Currently owned: <span id="autoclonerCounter">0</span>
-                    </p>
-                    <p>Cost: <span id="autoclonerCost">0</span></p>
+            <div class="row-container">
+                <div class="middle-item middle-right-item" id="lab">
+                    <h2>Research Lab</h2>
+                    <p>WIP. Coming soon.</p>
+                </div>
+
+                <div hidden class="middle-item" id="shop">
+                    <h2 title="The shop, where you buy things">Shop</h2>
+                    <div hidden class="shopItem" id="autocloner">
+                        <p>
+                            Simple Autocloner
+                            <button
+                                title="Buy one autocloner"
+                                onclick="shopAutoclonerBuyOnClick();"
+                            >
+                                Buy
+                            </button>
+                            <button
+                                title="Buy all the autocloners that you can buy"
+                                onclick="shopAutoclonerBuyAllOnClick();"
+                            >
+                                Buy all
+                            </button>
+                        </p>
+                        <p>
+                            Currently owned: <span id="autoclonerCounter"
+                            >0</span>
+                        </p>
+                        <p>Cost: <span id="autoclonerCost">0</span></p>
+                    </div>
                 </div>
             </div>
         </main>

@@ -13,6 +13,11 @@ noscript {
   flex-direction: row;
 }
 
+.reversed-row-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .column-container {
   display: flex;
   flex-direction: column;
@@ -41,6 +46,10 @@ main {
   padding-right: 30px;
   height: fit-content;
   text-align: center;
+}
+
+.middle-right-item {
+  margin-right: 20px;
 }
 
 footer {
