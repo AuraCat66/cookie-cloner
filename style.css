@@ -1,7 +1,7 @@
 body {
   background-color: #f5b400;
   font-family: Arial, sans-serif;
-  padding: 5px;
+  padding: 10px;
 }
 
 noscript {
@@ -36,20 +36,18 @@ header > div > h3 {
 }
 
 main {
+  background-color: #009926;
   justify-content: space-between;
+  padding: 10px;
   margin-top: 20px;
 }
 
 .middle-item {
   background-color: #85be00;
-  padding-left: 30px;
-  padding-right: 30px;
+  margin: 10px;
+  padding: 10px;
   height: fit-content;
   text-align: center;
-}
-
-.middle-right-item {
-  margin-right: 20px;
 }
 
 footer {
